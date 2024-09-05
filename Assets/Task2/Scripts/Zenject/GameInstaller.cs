@@ -14,7 +14,7 @@ namespace Task2.Zenject
 
         public override void InstallBindings()
         {
-            _elfFactory = new ElfFactory(_elfPaladin, _elfMagician);
+            /*_elfFactory = new ElfFactory(_elfPaladin, _elfMagician);
             _orkFactory = new OrkFactory(_orkPaladin, _orkMagician);
 
             _firstEnemySpawner = new EnemySpawner(_spawnPointFirstSpawner, _rangeSpawn);
@@ -23,7 +23,7 @@ namespace Task2.Zenject
             _firstEnemySpawner.SetEnemySpawner(_elfFactory);
             _secondEnemySpawner.SetEnemySpawner(_orkFactory);
 
-            Container.BindInterfacesAndSelfTo<Enem>()
+            Container.BindInterfacesAndSelfTo<Enem>()*/
         }
 
         /*private void BindPlayer()
@@ -47,4 +47,5 @@ namespace Task2.Zenject
             Container.BindInterfacesAndSelfTo<DefeatMediator>().AsSingle();
         }
     }*/
+    }
 }

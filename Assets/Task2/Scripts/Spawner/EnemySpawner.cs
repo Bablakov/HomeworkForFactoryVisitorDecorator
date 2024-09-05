@@ -19,6 +19,8 @@ namespace Task2.Spawner
             _rangeSpawne = rangeSpawn;
         }
 
+        //public EnemyRace EnemyFactoryType { get; private set; }
+
         public void Spawn()
         {
             EnemyType selectedEnemyType = GetRandomEnemyType();

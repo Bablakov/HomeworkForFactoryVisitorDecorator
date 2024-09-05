@@ -1,4 +1,6 @@
-﻿using Task2.Factory;
+﻿using System;
+using Task2.Enums;
+using Task2.Factory;
 using Zenject;
 
 namespace Assets.Task2.Scripts.Factory
@@ -10,7 +12,18 @@ namespace Assets.Task2.Scripts.Factory
         public FactoryEnemyFactory(IInstantiator instantiator) =>
             _instantiator = instantiator;
 
-        public TFactory Create<TFactory>() where TFactory : EnemyFactory =>
-            _instantiator.Instantiate<TFactory>();
+        public EnemyFactory Create(EnemyRace typeFactory)
+        {
+            switch (typeFactory)
+            {
+                case EnemyRace.Elf:
+                    return _instantiator.Instantiate<ElfFactory>();
+                case EnemyRace.Ork:
+                    return _instantiator.Instantiate<OrkFactory>();
+
+                default:
+                    throw new ArgumentException(nameof(typeFactory));
+            }
+        }
     }
 }
