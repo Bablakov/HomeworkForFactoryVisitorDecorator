@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Task3.Scripts.UI
+namespace Task3.UI
 {
     public class SpawnPanel : MonoBehaviour
     {

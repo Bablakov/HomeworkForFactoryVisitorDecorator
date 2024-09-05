@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Task3.Interfaces
 {
-    public interface ISpawning
+    public interface IDestroyed
     {
         public event Action Destroyed;
 

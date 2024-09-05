@@ -13,9 +13,9 @@ namespace Task3.Spawner
         private List<SpawnPoint> _spawnPoints;
         private CoinFactory _coinFactory;
 
-        public CoinSpawner(List<SpawnPoint> spawnPoints, CoinFactory coinFactory)
+        public CoinSpawner(IEnumerable<SpawnPoint> spawnPoints, CoinFactory coinFactory)
         {
-            _spawnPoints = spawnPoints;
+            _spawnPoints = new List<SpawnPoint>(spawnPoints);
             _coinFactory = coinFactory;
         }
 

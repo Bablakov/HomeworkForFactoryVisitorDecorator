@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Task3.Coins
 {
-    public abstract class Coin : MonoBehaviour, ISpawning
+    public abstract class Coin : MonoBehaviour, IDestroyed
     {
         public event Action Destroyed;
 

@@ -5,33 +5,33 @@ namespace Task3.Spawner
 {
     public class SpawnPoint : MonoBehaviour
     {
-        private ISpawning _spawning;
+        private IDestroyed _destroyed;
 
-        public bool IsEmpty => _spawning == null;
+        public bool IsEmpty => _destroyed == null;
 
-        public void Set(ISpawning spawning)
+        public void Set(IDestroyed spawning)
         {
-            _spawning = spawning;
+            _destroyed = spawning;
             SetPosition();
             Subscribe();
         }
 
         private void SetPosition()
         {
-            _spawning.Transform.position = transform.position;
-            _spawning.Transform.rotation = transform.rotation;
+            _destroyed.Transform.position = transform.position;
+            _destroyed.Transform.rotation = transform.rotation;
         }
 
         private void Subscribe()
-            => _spawning.Destroyed += OnDestroyed;
+            => _destroyed.Destroyed += OnDestroyed;
 
         private void Unsubscribe()
-            => _spawning.Destroyed -= OnDestroyed;
+            => _destroyed.Destroyed -= OnDestroyed;
 
         private void OnDestroyed()
         {
-            _spawning = null;
             Unsubscribe();
+            _destroyed = null;   
         }
     }
 }

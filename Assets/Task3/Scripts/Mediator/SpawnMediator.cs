@@ -1,4 +1,4 @@
-﻿using Assets.Task3.Scripts.UI;
+﻿using Task3.UI;
 using System;
 using Task3.Spawner;
 

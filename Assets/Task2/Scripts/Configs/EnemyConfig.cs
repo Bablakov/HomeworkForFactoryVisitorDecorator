@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Task2.Configs
 {
-    [CreateAssetMenu(fileName = "EnemyConfig", menuName = "Configs/EnemyConfig")]
+    [CreateAssetMenu(fileName = "EnemyConfig", menuName = "Configs/Task2/EnemyConfig")]
     public class EnemyConfig : ScriptableObject
     {
         [field: SerializeField] public OrkMagician OrkMagician { get; private set; }
