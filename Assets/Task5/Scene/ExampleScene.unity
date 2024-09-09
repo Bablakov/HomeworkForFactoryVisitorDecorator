@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &274051672
+--- !u!1 &217801930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 274051674}
-  - component: {fileID: 274051673}
+  - component: {fileID: 217801931}
+  - component: {fileID: 217801932}
   m_Layer: 0
   m_Name: Bootstrap
   m_TagString: Untagged
@@ -140,33 +140,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &274051673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274051672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e4d97fe43d7d449ac8106a6715bb73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &274051674
+--- !u!4 &217801931
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274051672}
+  m_GameObject: {fileID: 217801930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1555448054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217801932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217801930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e4d97fe43d7d449ac8106a6715bb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _humanConfig: {fileID: 11400000, guid: 8a8ff81d636b66b4caf42164b0ae1f33, type: 2}
+  _orkConfig: {fileID: 11400000, guid: 1c8490ba1b1033844ba33ec04e4b5b9d, type: 2}
+  _elfConfig: {fileID: 11400000, guid: 6305d39e079bcb44ebf24c738c01db30, type: 2}
+  _passiveAbilityConfig: {fileID: 11400000, guid: 2e0f4e31204da6c46a7c0a41ded73a0a,
+    type: 2}
+  _specializationConfig: {fileID: 11400000, guid: 1b13974ce40490f47bb8d6136f94d155,
+    type: 2}
 --- !u!1 &524431943
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 274051674}
+  - {fileID: 217801931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994445976

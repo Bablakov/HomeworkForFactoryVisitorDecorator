@@ -5,6 +5,6 @@ namespace Task5.StatProviders
 {
     public interface IStatProvider
     {
-        public CharacterStat GetStat();
+        public Stat GetStat(StatType statType);
     }
 }

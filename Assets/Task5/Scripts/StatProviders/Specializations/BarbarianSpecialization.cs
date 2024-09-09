@@ -4,16 +4,10 @@ namespace Task5.StatProviders.Specializations
 {
     public class BarbarianSpecialization : SpecializationStat
     {
-        public BarbarianSpecialization(IStatProvider statProvider) : base(statProvider) { }
+        public BarbarianSpecialization(IStatProvider statProvider, int multiplier) : 
+            base(statProvider, multiplier) { }
 
-        public override CharacterStat GetStat()
-        {
-            var stats = StatProvider.GetStat();
-
-            var statsNew = new CharacterStat(stats.DexterityStat.Value,
-                stats.IntelligenceStat.Value * 2, stats.PowerStat.Value);
-
-            return statsNew;
-        }
+        protected override Stat GetPower()
+            => base.GetPower().Multiply(Multiplier);
     }
 }

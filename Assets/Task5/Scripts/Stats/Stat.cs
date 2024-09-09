@@ -7,9 +7,25 @@
 
         public int Value { get; private set; }
 
-        public void Add(int value) => Value += value;
-        public void Reduce(int value) => Value -= value;
-        public void Multiply(int value) => Value *= value;
-        public void Devide(int value) => Value /= value;
+        public Stat Add(int value)
+        {
+            Value += value;
+            return this;
+        }
+        public Stat Reduce(int value)
+        {
+            Value -= value;
+            return this;
+        }
+        public Stat Multiply(int value)
+        {
+            Value *= value;
+            return this;
+        }
+        public Stat Devide(int value)
+        {
+            Value /= value;
+            return this;
+        }
     }
 }

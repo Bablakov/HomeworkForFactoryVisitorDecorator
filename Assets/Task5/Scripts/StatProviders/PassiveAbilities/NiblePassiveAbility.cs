@@ -4,16 +4,11 @@ namespace Task5.StatProviders.PassiveAbilities
 {
     public class NiblePassiveAbility : PassiveAbility
     {
-        public NiblePassiveAbility(IStatProvider statProvider) : base(statProvider) { }
+        public NiblePassiveAbility(IStatProvider statProvider, int supplement) :
+            base(statProvider, supplement)
+        { }
 
-        public override CharacterStat GetStat()
-        {
-            var stats = StatProvider.GetStat();
-
-            var statsNew = new CharacterStat(stats.DexterityStat.Value + 10,
-                stats.IntelligenceStat.Value, stats.PowerStat.Value);
-
-            return statsNew;
-        }
+        protected override Stat GetPower()
+            => base.GetDexterity().Add(Supplement);
     }
 }

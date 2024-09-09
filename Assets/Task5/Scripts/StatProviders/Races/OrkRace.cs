@@ -1,15 +1,9 @@
-﻿using Task5.Stats;
+﻿using Task5.Configs;
 
 namespace Task5.StatProviders.Races
 {
     public class OrkRace : RaceStat
     {
-        public OrkRace()
-        {
-            CharacterStat = new CharacterStat(1, 1, 3);
-        }
-
-        public override CharacterStat GetStat()
-            => CharacterStat;
+        public OrkRace(CharacterConfig characterConfig) : base(characterConfig) { }
     }
 }
