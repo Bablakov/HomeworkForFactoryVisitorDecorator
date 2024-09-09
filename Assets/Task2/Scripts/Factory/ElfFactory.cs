@@ -1,6 +1,6 @@
 ﻿using System;
+using Task2.Configs;
 using Task2.Enemys;
-using Task2.Enemys.RaceType.Elf;
 using Task2.Enums;
 using UnityEngine;
 
@@ -8,24 +8,20 @@ namespace Task2.Factory
 {
     public class ElfFactory : EnemyFactory
     {
-        private ElfPaladin _elfPaladin;
-        private ElfMagician _elfMagician;
+        private ElfConfig _elfConfig;
 
-        public ElfFactory(ElfPaladin elfPaladin, ElfMagician elfMagician) 
-        { 
-            _elfPaladin = elfPaladin;
-            _elfMagician = elfMagician;
-        }
+        public ElfFactory(EnemyConfig enemyConfig)
+            => _elfConfig = enemyConfig.ElfConfig;
 
-        public override Enemy Get(EnemyType enemyType)
+        public override Enemy Get(EnemyType enemyType, Vector3 spawnPosition)
         {
             switch (enemyType)
             {
                 case EnemyType.Paladin:
-                    return GameObject.Instantiate(_elfPaladin);
+                    return CreateEnemy(_elfConfig.ElfMagician, spawnPosition);
 
                 case EnemyType.Magician:
-                    return GameObject.Instantiate(_elfMagician);
+                    return CreateEnemy(_elfConfig.ElfMagician, spawnPosition);
 
                 default:
                     throw new ArgumentException(nameof(enemyType));

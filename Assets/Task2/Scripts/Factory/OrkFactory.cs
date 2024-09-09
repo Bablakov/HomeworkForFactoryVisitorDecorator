@@ -1,6 +1,6 @@
 ﻿using System;
+using Task2.Configs;
 using Task2.Enemys;
-using Task2.Enemys.RaceType.Ork;
 using Task2.Enums;
 using UnityEngine;
 
@@ -8,24 +8,20 @@ namespace Task2.Factory
 {
     public class OrkFactory : EnemyFactory
     {
-        private OrkPaladin _orkPaladin;
-        private OrkMagician _orkMagician;
+        private OrkConfig _orkConfig;
 
-        public OrkFactory(OrkPaladin orkPaladin, OrkMagician orkMagician) 
-        { 
-            _orkPaladin = orkPaladin;
-            _orkMagician = orkMagician;
-        }
+        public OrkFactory(EnemyConfig enemyConfig)
+            => _orkConfig = enemyConfig.OrkConfig;
 
-        public override Enemy Get(EnemyType enemyType)
+        public override Enemy Get(EnemyType enemyType, Vector3 spawnPosition)
         {
             switch (enemyType)
             {
                 case EnemyType.Paladin:
-                    return GameObject.Instantiate(_orkPaladin);
+                    return CreateEnemy(_orkConfig.OrkPaladin, spawnPosition);
 
                 case EnemyType.Magician:
-                    return GameObject.Instantiate(_orkMagician);
+                    return CreateEnemy(_orkConfig.OrkMagician, spawnPosition);
 
                 default:
                     throw new ArgumentException(nameof(enemyType));

@@ -9,26 +9,30 @@ namespace Task2.Spawner
 {
     public class EnemySpawner
     {
+        private const float DefaultPositionByY = 0;
+
         private EnemyFactory _enemyFactory;
         private Transform _spawnPoint;
-        private float _rangeSpawne;
+        private float _rangeSpawn;
 
         public EnemySpawner(Transform spawnPoint, float rangeSpawn)
         {
             _spawnPoint = spawnPoint;
-            _rangeSpawne = rangeSpawn;
+            _rangeSpawn = rangeSpawn;
         }
 
-        //public EnemyRace EnemyFactoryType { get; private set; }
+        private float RandomRangeSpawn => Random.Range(-_rangeSpawn, _rangeSpawn);
+        private float PositionByX => _spawnPoint.position.x;
+        private float PositionByZ => _spawnPoint.position.z;
 
         public void Spawn()
         {
             EnemyType selectedEnemyType = GetRandomEnemyType();
-            Enemy enemy = _enemyFactory.Get(selectedEnemyType);
-            enemy.transform.position = CalculateRandomSpawnPoint();
+            Enemy enemy = _enemyFactory.Get(selectedEnemyType, CalculateRandomSpawnPoint());
+            enemy.Initialize();
         }
 
-        public void SetEnemySpawner(EnemyFactory enemyFactory) 
+        public void SetEnemyFactory(EnemyFactory enemyFactory) 
             => _enemyFactory = enemyFactory;
 
         private EnemyType GetRandomEnemyType()
@@ -40,13 +44,6 @@ namespace Task2.Spawner
         }
 
         private Vector3 CalculateRandomSpawnPoint()
-        {
-            float rangeByX = Random.Range(-_rangeSpawne, _rangeSpawne);
-            float rangeByZ = Random.Range(-_rangeSpawne, _rangeSpawne);
-
-            Vector3 spawnPoint = new Vector3(_spawnPoint.position.x + rangeByX, 0, _spawnPoint.position.z + rangeByZ);
-
-            return spawnPoint;
-        }
+            => new Vector3(PositionByX + RandomRangeSpawn, DefaultPositionByY, PositionByZ + RandomRangeSpawn);
     }
 }

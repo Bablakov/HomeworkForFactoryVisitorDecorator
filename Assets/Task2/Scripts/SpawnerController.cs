@@ -1,4 +1,4 @@
-﻿using Assets.Task2.Scripts.Factory;
+﻿using UnityEngine;
 using Task2.Factory;
 using Task2.Spawner;
 
@@ -8,8 +8,6 @@ namespace Task2
     {
         private EnemySpawner _firstEnemySpawner;
         private EnemySpawner _secondEnemySpawner;
-
-        private FactoryEnemyFactory _factoryEnemyFactory;
 
         private ElfFactory _elfFactory;
         private OrkFactory _orkFactory;
@@ -24,32 +22,35 @@ namespace Task2
             _elfFactory = elfFactory;
             _orkFactory = orkFactory;
 
-            _firstEnemySpawner.SetEnemySpawner(_elfFactory);
-            _secondEnemySpawner.SetEnemySpawner(_orkFactory);
+            _firstEnemySpawner.SetEnemyFactory(_elfFactory);
+            _secondEnemySpawner.SetEnemyFactory(_orkFactory);
 
             _isFirstEnemySpawnerWithElfFactory = true;
         }
 
         public void Spawn()
         {
+            Debug.Log("-----Заспавнились враги-----");
             _firstEnemySpawner.Spawn();
             _secondEnemySpawner.Spawn();
         }
 
         public void SwitchFactory()
         {
+            Debug.Log("-----Смена спавнеров сторонами-----");
+
             if (_isFirstEnemySpawnerWithElfFactory)
             {
-                _firstEnemySpawner.SetEnemySpawner(_orkFactory);
-                _secondEnemySpawner.SetEnemySpawner(_elfFactory);
+                _firstEnemySpawner.SetEnemyFactory(_orkFactory);
+                _secondEnemySpawner.SetEnemyFactory(_elfFactory);
 
                 _isFirstEnemySpawnerWithElfFactory = false;
             }
 
             else
             {
-                _firstEnemySpawner.SetEnemySpawner(_elfFactory);
-                _secondEnemySpawner.SetEnemySpawner(_orkFactory);
+                _firstEnemySpawner.SetEnemyFactory(_elfFactory);
+                _secondEnemySpawner.SetEnemyFactory(_orkFactory);
 
                 _isFirstEnemySpawnerWithElfFactory = true;
             }

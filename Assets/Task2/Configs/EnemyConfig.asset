@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd2ad6c7b0066042bf77de4bac9ea6e, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  <OrkMagician>k__BackingField: {fileID: -6756216744431104371, guid: 4616ddeb3068dfd49b0437726f394cab,
-    type: 3}
-  <ElfMagician>k__BackingField: {fileID: 1095525104030106845, guid: f66e481635729d64d9f6fd51fa9887b8,
-    type: 3}
-  <OrkPaladin>k__BackingField: {fileID: -8572360158854539466, guid: 0c156ddf625cc634a83c511c86795c24,
-    type: 3}
-  <ElfPaladin>k__BackingField: {fileID: 4829063401038721232, guid: 2d8135c4bb3096a41ba341d19ab96d5b,
-    type: 3}
+  <ElfConfig>k__BackingField:
+    <ElfMagician>k__BackingField: {fileID: 1095525104030106845, guid: f66e481635729d64d9f6fd51fa9887b8,
+      type: 3}
+    <ElfPaladin>k__BackingField: {fileID: 4829063401038721232, guid: 2d8135c4bb3096a41ba341d19ab96d5b,
+      type: 3}
+  <OrkConfig>k__BackingField:
+    <OrkMagician>k__BackingField: {fileID: -6756216744431104371, guid: 4616ddeb3068dfd49b0437726f394cab,
+      type: 3}
+    <OrkPaladin>k__BackingField: {fileID: -8572360158854539466, guid: 0c156ddf625cc634a83c511c86795c24,
+      type: 3}

@@ -1,9 +1,9 @@
-﻿using Task2.Enemys.RaceType.Elf;
-using Task2.Enemys.RaceType.Ork;
-using Task2.Spawner;
+﻿using Task2.Spawner;
 using Task2.Factory;
 using UnityEngine;
 using Zenject;
+using Task2.Mediator;
+using Task2.UI;
 
 namespace Task2.Zenject
 {
@@ -11,41 +11,36 @@ namespace Task2.Zenject
     {
         [SerializeField] private Transform _spawnPointFirstSpawner;
         [SerializeField] private Transform _spawnPointSecondSpawner;
+        [SerializeField] private ControlPanel _controlPanel;
+        [SerializeField, Range(0, 10)] private float _rangeSpawn;
+
+        private EnemySpawner _firstEnemySpawner;
+        private EnemySpawner _secondEnemySpawner;
 
         public override void InstallBindings()
         {
-            /*_elfFactory = new ElfFactory(_elfPaladin, _elfMagician);
-            _orkFactory = new OrkFactory(_orkPaladin, _orkMagician);
+            BindFactories();
+            CreateSpawners();
+            BindSpawnerController();
+            BindControlMediator();
+        }
 
+        private void BindFactories()
+        {
+            Container.BindInterfacesAndSelfTo<ElfFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<OrkFactory>().AsSingle();
+        }
+
+        private void CreateSpawners()
+        {
             _firstEnemySpawner = new EnemySpawner(_spawnPointFirstSpawner, _rangeSpawn);
             _secondEnemySpawner = new EnemySpawner(_spawnPointSecondSpawner, _rangeSpawn);
-
-            _firstEnemySpawner.SetEnemySpawner(_elfFactory);
-            _secondEnemySpawner.SetEnemySpawner(_orkFactory);
-
-            Container.BindInterfacesAndSelfTo<Enem>()*/
         }
 
-        /*private void BindPlayer()
-        {
-            Container.BindInterfacesAndSelfTo<Level>().AsSingle();
-            Container.BindInterfacesAndSelfTo<Health>().AsSingle();
-            Container.BindInterfacesAndSelfTo<Player>().AsSingle();
-        }
+        private void BindSpawnerController()
+            => Container.BindInterfacesAndSelfTo<SpawnerController>().AsSingle().WithArguments(_firstEnemySpawner, _secondEnemySpawner);
 
-        private void BindMonoBehaviourComponent()
-        {
-            Container.BindInterfacesAndSelfTo<SpecificationPanel>().FromInstance(_specificationPanel);
-            Container.BindInterfacesAndSelfTo<InteractionPanel>().FromInstance(_interactionPanel);
-            Container.BindInterfacesAndSelfTo<DefeatPanel>().FromInstance(_defeatPanel);
-        }
-
-        private void BindMediators()
-        {
-            Container.BindInterfacesAndSelfTo<SpecificationPlayerMediator>().AsSingle();
-            Container.BindInterfacesAndSelfTo<InteractionPlayerMediator>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DefeatMediator>().AsSingle();
-        }
-    }*/
+        private void BindControlMediator()
+            => Container.BindInterfacesAndSelfTo<ControlMediator>().AsSingle().WithArguments(_controlPanel);
     }
 }
